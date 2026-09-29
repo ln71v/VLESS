@@ -1,0 +1,13 @@
+[Unit]
+Description=VLESS Telegram bot
+After=network-online.target xray.service
+Wants=network-online.target
+
+[Service]
+EnvironmentFile=/etc/vless-bot.env
+ExecStart=/usr/bin/python3 /opt/vless-bot/bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
